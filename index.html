@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - WilliamPearceDev</title>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Mohave' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <header>
+    <div class="navbar-container">
+      <!--<a href="#default" class="logo">WilliamPearceDev</a>-->
+      <nav class="navbar-right" id="navbarRight">
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="javascript:void(0);" class="icon" onclick="toggleNavbar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </nav>
+      
+    </div>
+  </header>
+
+  <main>
+    <section class="cta cta-about">
+      <div class="cta-text cta-text-bordered bottom-left-border">
+        <h1>William Pearce</h1>
+        <h2>Web Developer</h2>
+        <br>
+        <p>
+          I can equip your business with all you need for a state-of-the-art web presence, such as via websites, web applications, and digital marketing. My focus is on web development, digital marketing and SEO.
+        </p>
+        <br>
+        <div id="scroll-section">
+          <div class="scroll-container">
+            <div class="scroll-content">
+              <div class="scroll-item">Digital marketing</div>
+              <div class="scroll-item">Business website</div>
+              <div class="scroll-item">Personal website</div>
+              <div class="scroll-item">E-commerce website</div>
+              <div class="scroll-item">SEO</div>
+            </div>
+          </div>
+        </div>
+        <a href="/pages/contact.html" class="cta-button">CONTACT</a>
+      </div>
+      <div class="cta-image-container">
+        <img src="/img/william-headshot.jpg" alt="Photograph of William Pearce" style="border-radius: 10px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);">
+      </div>
+    </section>
+
+    <section class="social-icons-container">
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-linkedin"></a>
+      <a href="#" class="fa fa-instagram"></a>
+    </section>
+
+    <!--
+    <section class="cta cta-services">
+      <div class="cta-text cta-text-bordered bottom-border">
+        <h2>Services</h2>
+        <img src="/img/services-graphic.png" alt="A graphic representing services" style="width: 80%;">
+        <h3>
+          <strong>Web Design | Web Development | SEO</strong>
+        </h3>
+        <p>
+          As a professional freelancer specialising in <b>web design, web development and SEO</b>, I provide state-of-the-art web solutions with a focus on your needs.
+          I can deliver business websites, web applications, web shops and more! If it is on the web and will help improve your business's productivity then I can provide it.
+        </p>
+      </div>
+    </section>
+
+    <div class="page-divider">
+
+    </div>
+
+    <section class="featured-project">
+
+    </section>
+
+    -->
+
+    <div class="cta cta-contact">
+      <div class="cta-text cta-text-bordered bottom-left-border cta-heading-container">
+        <h2 class="banner-heading">
+          <strong>CONTACT</strong>
+        </h2>
+      </div>
+      <div class="cta-text-bordered-spacer"></div>
+      <div class="cta-text cta-text-bordered bottom-right-border">
+        <p>
+          Feel free to get in touch as I am eager to enable you to achieve your goals for your online presence. <br><br> Reach out to me with any questions, requests for a quote, or anything else:
+        </p>
+        <br>
+        <a href="/pages/contact.html">Contact me</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="link-container">
+      <h2>
+        SOCIALS
+      </h2>
+      <ul class="link-list">
+        <li><a href="https://www.instagram.com/williampearcedev/">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/in/williampearcedev/">LinkedIn</a></li>
+        <li><a href="https://github.com/williampearcedev">Github</a></li>
+      </ul>
+    </div>
+    <div class="link-container">
+      <h2>
+        LINKS
+      </h2>
+      <ul class="link-list">
+        <li><a href="/pages/index.html">Home</a></li>
+        <li><a href="/pages/services.html">Services</a></li>
+        <li><a href="/pages/projects.html">Projects</a></li>
+        <li><a href="/pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="link-container">
+      <a href="mailto:williampearcebusiness@gmail.com">Email me</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+  <script>
+    function toggleNavbar() {
+      var x = document.getElementById("navbarRight");
+      if (x.className === "navbar-right") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar-right";
+      }
+    }
+    </script>
+</body>
+</html>
