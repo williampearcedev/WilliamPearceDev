@@ -11,8 +11,31 @@
 </head>
 <body>
   <header>
+    <div class="navbar-logo-container">
+      <a href="#home">
+        <img src="/img/williampearcedev-logo.png" alt="WilliamPearceDev Logo" class="logo-img" height="73px">
+      </a>
+    </div>
+    <div class="navbar-links">
+      <a href="#home" class="active">Home</a>
+      <div id="navbarList">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      
+    </div>
+    <div class="navbar-expand-button-container">
+      <a href="javascript:void(0);" class="navbar-expand-icon" onclick="toggleNavbar()">
+      <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+  <!-- End smartphone / tablet look -->
+
+  <!--
     <div class="navbar-container">
-      <!--<a href="#default" class="logo">WilliamPearceDev</a>-->
+      <a href="#default" class="logo">WilliamPearceDev</a>
       <nav class="navbar-right" id="navbarRight">
         <a href="#home" class="active">Home</a>
         <a href="#services">Services</a>
@@ -22,8 +45,8 @@
           <i class="fa fa-bars"></i>
         </a>
       </nav>
-      
     </div>
+    -->
   </header>
 
   <main>
@@ -33,7 +56,7 @@
         <h2>Web Developer</h2>
         <br>
         <p>
-          I can equip your business with all you need for a state-of-the-art web presence, such as via websites, web applications, and digital marketing. My focus is on web development, digital marketing and SEO.
+          I can equip your business with all you need for a state-of-the-art web presence, such as a website or any other means of digital marketing. My focus is on web development, digital marketing and SEO.
         </p>
         <br>
         <div id="scroll-section">
@@ -131,6 +154,7 @@
 
   <script src="script.js"></script>
 
+  <!--
   <script>
     function toggleNavbar() {
       var x = document.getElementById("navbarRight");
@@ -141,5 +165,17 @@
       }
     }
     </script>
+  -->
+
+  <script>
+function toggleNavbar() {
+  var x = document.getElementById("navbarList");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+</script>
 </body>
 </html>

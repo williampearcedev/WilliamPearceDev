@@ -1,4 +1,4 @@
-// Ensure infinite scrolling with no gaps
+// Infinite scrolling
 document.addEventListener('DOMContentLoaded', () => {
   const scrollContent = document.querySelector('#scroll-section .scroll-content');
 
