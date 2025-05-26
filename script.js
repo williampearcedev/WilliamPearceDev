@@ -12,3 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 0);
   scrollContent.style.width = `${totalWidth}px`;
 });
+
+function toggleNavbar() {
+  var x = document.getElementById("navbarList");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}

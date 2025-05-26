@@ -28,8 +28,12 @@ body {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
   font-family: 'Mohave';
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Quicksand';
 }
 
 a {
@@ -106,9 +110,8 @@ header {
       align-self: flex-end;
       display: flex;
       justify-content: end;
-
       #navbarList {
-        display: block;
+        display: contents;
       }
     }
     .navbar-expand-button-container {
@@ -133,8 +136,6 @@ main {
     padding-top: 50px;
   }
 }
-
-//
 
 .cta {
   padding-top: 0px;
@@ -191,6 +192,24 @@ main {
   }
 }
 
+.cta-services {
+    .services-cards-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .services-card {
+        min-width: 100%;
+        max-width: 100vw;
+        background-color: $color-white;
+        margin: 10px 0px 10px 0px;
+        border-radius: 10px;
+        box-shadow: $color-green-bright 0px 0px 0px 2px;
+        text-align: center;
+        padding: 20px;
+      }
+    }
+  }
+
 @media only screen and (min-width: 600px) {
   .cta{
     justify-content: center;
@@ -236,17 +255,15 @@ main {
     .cta-text{
       min-width: 320px;
       max-width: 40%;
+
       h2 {
         font-size: $font-size-extra-large;
       }
     }
   }
-  /*
-  .cta-services {
-    //width: 1000px;
-    //background-color: $color-green-dark;
-  }
-*/
+
+  
+
   .cta-contact {
     display: flex;
     .cta-text{
@@ -264,6 +281,9 @@ main {
     margin: auto;
     min-width: 500px;
     max-width: 50%;
+    .services-card {
+      max-width: 400px;
+    }
   }
 }
 
