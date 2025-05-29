@@ -53,7 +53,7 @@ header {
   .navbar-logo-container {
     align-self: flex-start;
     min-width: 80px;
-    width: 15vw;
+    max-width: 15vw;
     a {
       img {
         padding: 10px 16px;
@@ -62,12 +62,15 @@ header {
     
   }
   .navbar-links {
-    width: 70vw;
+    width: 50vw;
     position: relative;
     overflow: hidden;
     background-color: $color-white;
     padding: 10px;
     float: right;
+    #navbarList {
+      display: none;
+    }
     a {
       padding: 14px 16px;
       text-decoration: none;
@@ -75,19 +78,25 @@ header {
       font-size: $font-size-large;
       border-radius: 4px;
       text-align: center;
-      .navbar-expand-icon {
-        background: $color-white;
-        i {
-          align-items: baseline;
-        }
-      }
     }
-    #navbarList {
-      display: none;
+    a:after {
+      display: block;
+      content: '';
+      border-bottom: solid 1px $color-white;
+      transform: scale(0);
+      transition: transform 350ms ease-in-out;
     }
     a:hover {
-      background-color: $color-yellow-bright;
-      color: $color-black;
+      background: linear-gradient(320deg, $color-brown 0%, $color-light-brown 100%);
+      color: $color-white;
+      transition-timing-function: ease-in-out;
+      transition: all 350ms;
+    }
+    a:hover:after {
+      transform: scaleX(1);
+    }
+    a:not(:hover) {
+      transition: all 350ms;
     }
     .active {
       background-color: $color-green-bright;
@@ -97,6 +106,17 @@ header {
   .navbar-expand-button-container {
     width: 15vw;
     float: right;
+    .navbar-expand-icon {
+      padding: 10px;
+      //max-width: 53px;
+      height: 74px;
+      background: $color-white;
+      justify-self: center;
+      text-align: center;
+      i {
+        align-self: center;
+      }
+    }
   }
 }
 
@@ -107,28 +127,34 @@ header {
       text-align: center;
     }
     .navbar-links {
+      min-width: 80vw;
       align-self: flex-end;
       display: flex;
       justify-content: end;
       #navbarList {
         display: contents;
+        a {
+          margin-left: 5px;
+        }
       }
     }
     .navbar-expand-button-container {
-        display: none;
-        a {
-          height: 73px;
-          i {
-            align-self: center;
-          }
+      display: none;
+      a {
+        height: 73px;
+        i {
+          align-self: center;
         }
+      }
     }
   }
 }
 
 main {
+  max-width: 100vw;
+  max-width: 1920px;
   height: 100%;
-  background: linear-gradient(320deg, $color-white 0%, $color-green-gradient 80%);
+  background: linear-gradient(320deg, $color-white 0%, $color-green-background 80%);
 }
 
 @media screen and (min-width: 600px) {
@@ -140,7 +166,7 @@ main {
 .cta {
   padding-top: 0px;
   .cta-text {
-    min-width: 320px;
+    min-width: 290px;
     max-width: 100vw;
     text-align: center;
     background-color: $color-white;
@@ -154,32 +180,53 @@ main {
     h3 {
       font-size: $font-size-extra-large;
     }
-    a {
-      color: $color-black;
-      font-size: $font-size-large;
-      text-decoration: underline;
-    }
     .cta-button {
+      display: block;
       font-size: $font-size-large;
-      background-color: $color-yellow-bright;
+      background-color: $color-brown;
       text-decoration: none;
       font-weight: bold;
-      color: $color-black;
+      color: $color-white;
       margin: 10px;
       padding-top: 10px;
       padding: 16px;
       border-radius: 7px;
-      border: 2px solid $color-black;
+      //border: 2px solid $color-brown;
+      box-shadow: $color-white 0px 0px 0px 0px, $color-light-brown -10px 10px;
       display: inline-block;
     }
+    .cta-button:hover {
+      //color: $color-black;
+      //background: linear-gradient(320deg, $color-brown 0%, $color-light-brown 80%);
+      //border: 2px solid $color-brown;
+      //border: 2px solid $color-$light-brown;
+      color: $color-brown;
+      background-color: $color-light-brown;
+      box-shadow: $color-light-brown 0px 0px 0px 0px, $color-brown 10px 10px;
+      transition-timing-function: ease-in;
+      scale: 1.1;
+      transition: all 350ms;
+    }
+    .cta-button:not(:hover) {
+      background-color: $color-brown;
+      scale: 1;
+      //transition: scale 350ms;
+      //transition: background-color 350ms;
+      transition: all 350ms;
+  }
     a:visited {
-      color: $color-black;
+      color: $color-white;
     }
   }
+  .cta-text-bordered {
+    border-top: 2px solid $color-green-bright;
+    border-bottom: 2px solid $color-green-bright;
+  }
   .cta-image-container {
-    padding: 10px;
+    max-width: 100vw;
     img {
       max-height: 50vh;
+      max-width: 100vw;
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -192,28 +239,16 @@ main {
   }
 }
 
-.cta-services {
-    .services-cards-container {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      .services-card {
-        min-width: 100%;
-        max-width: 100vw;
-        background-color: $color-white;
-        margin: 10px 0px 10px 0px;
-        border-radius: 10px;
-        box-shadow: $color-green-bright 0px 0px 0px 2px;
-        text-align: center;
-        padding: 20px;
-      }
-    }
+@media only screen and (min-width: 400px) {
+  .cta-image-container {
+    padding: 10px;
   }
+}
 
 @media only screen and (min-width: 600px) {
   .cta{
     justify-content: center;
-    padding-top: 50px;
+    //padding-top: 50px;
     padding-bottom: 50px;
     .cta-text {
       text-align: center;
@@ -221,12 +256,9 @@ main {
     }
     .cta-text-bordered {
       color: $color-black;
+      background-color: $color-white;
       border-radius: 10px;
-      border: 2px;
-      border-color: $color-green-bright;
-    }
-    .bottom-border {
-      box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium 0px 10px, $color-green-dark 0px 20px;
+      border: 2px solid $color-green-bright;
     }
     .bottom-left-border {
       box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
@@ -246,49 +278,39 @@ main {
         width: 100%;
       }
     }
-    .cta-heading-container {
-      height: 9rem;
+    .cta-text-animated-border-moving-shadow {
+      box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+      animation: moving-shadow 10s infinite;
     }
   }
+}
+
+@keyframes moving-shadow {
+  0% {
+    box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+  }
+  50% {
+    box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium 10px 10px, $color-green-dark 20px 20px;
+  }
+  100% {
+    box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
   .cta-about{
     display: flex;
+    flex-direction: row;
     .cta-text{
       min-width: 320px;
       max-width: 40%;
-
       h2 {
         font-size: $font-size-extra-large;
       }
     }
   }
-
-  
-
-  .cta-contact {
-    display: flex;
-    .cta-text{
-      min-width: 320px;
-      max-width: 40%;
-      .banner-heading {
-        font-size: $font-size-banner;
-      }
-    }
-  }
 }
 
-@media only screen and (min-width: 800px) {
-  .cta-services {
-    margin: auto;
-    min-width: 500px;
-    max-width: 50%;
-    .services-card {
-      max-width: 400px;
-    }
-  }
-}
-
-//
-/* Scrolling section */
 #scroll-section {
   .scroll-container {
     margin: auto;
@@ -316,8 +338,10 @@ main {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  .scroll-container:hover .scroll-content {
-    animation-play-state: paused;
+  .scroll-container:hover {
+    .scroll-content {
+      animation-play-state: paused;
+    }
   }
 }
 
@@ -330,44 +354,174 @@ main {
   }
 }
 
+.cta-services {
+  .info-card-area {
+    max-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    .info-card {
+      border-radius: 10px;
+      border: solid $color-green-bright 2px;
+      max-width: 100vw;
+      background-color: $color-white;
+      margin: 10px 0px 10px 0px;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .cta-services {
+    padding-bottom: 0;
+    margin-bottom: 50px;
+    justify-self: center;
+    //background-color: $color-green-background;
+    min-width: 600px;
+    max-width: 60%;
+    .cta-text{
+      justify-self: center;
+      //width: 92%;
+    }
+    .info-card-area {
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-around;
+      .info-card-container {
+        max-width: 44%;
+        .info-card {
+          padding: 20px;
+          border-radius: 10px;
+          
+          h3 {
+            padding-bottom: 8px;
+          }
+        }
+      }
+      
+      .info-card:hover {
+        border: 0;
+        border: solid $color-brown 2px;
+        scale: 1.1;
+        transition-timing-function: ease;
+        transition: scale 350ms;
+      }
+      .info-card:not(:hover) {
+        //border: solid $color-green-bright;
+        scale: 1;
+        transition: all 350ms;
+      }
+    }
+  }
+}
+
+.cta-projects {
+  width: 100vw;
+  .cta-text {
+    max-width: 100vw;
+  }
+  .featured-project {
+    max-width: 100vw;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .cta-projects {
+    //min-width: 600px;
+    //max-width: 70vw;
+    width: 100vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    .cta-text {
+      max-width: 20vw;
+    }
+    .featured-project {
+      margin-left: 10px;
+      max-width: 50vw;
+      border: 2px solid $color-green-bright;
+      border-radius: 10px;
+    }
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .cta-contact {
+    display: flex;
+    .cta-text{
+      min-width: 320px;
+      max-width: 40%;
+      .banner-heading {
+        font-size: $font-size-banner;
+      }
+    }
+    .cta-banner-heading-container {
+      height: 9rem;
+    }
+  }
+}
+
+
 //
 
 .social-icons-container {
+  justify-self: center;
+  max-width: 100vw;
+  height: 70px;
   display:flex;
+  flex-wrap: wrap;
   justify-content: center;
   //background-color: $color-green-bright;
+  border: 2px solid $color-green-bright;
+  border-radius: 10px;
+  background: $color-white;
   padding-bottom: 10px;
+  //margin: 20px;
+  margin-bottom: 50px;
+  .fa {
+    padding: 20px;
+    max-width: 70px;
+    text-align: center;
+    text-decoration: none;
+    //margin: 5px 2px;
+    //border-radius: 50%;
+    color: $color-brown;
+  }
+  .fa:hover {
+    //opacity: 0.7;
+    scale: 1.2;
+    animation: rotatesocialicon 500ms;
+    transition: all 350ms;
+  }
+  .fa:not(:hover) {
+    scale: 1;
+    transition: all 350ms;
+  }
 }
 
-.fa {
-  padding: 20px;
-  font-size: $font-size-default;
-  width: 58px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
+@media only screen and (max-width: 399px) {
+  .social-icons-container {
+    width: 100vw;
+  }
 }
 
-.fa:hover {
-    opacity: 0.7;
+@keyframes rotatesocialicon {
+  100% {transform: rotate(360deg);}
 }
 
-.fa-facebook {
-  background: #3B5998;
-  color: $color-white;
+@media only screen and (max-width: 399px) {
+  .social-icons-container{
+    width: 100vw;
+    height: fit-content;
+  }
 }
 
-.fa-linkedin {
-  background: #007bb5;
-  color: $color-white;
+@media only screen and (min-width: 600px) {
+  .social-icons-container {
+    max-width: 400px;
+  }
 }
-
-.fa-instagram {
-  background: #bc2a8d;
-  color: $color-white;
-}
-
 /*
 .page-divider {
   background-color: $color-green-medium;
@@ -383,6 +537,7 @@ main {
 }
 */
 
+/*
 .visit-button {
   font-size: $font-size-large;
   background-color: $color-yellow-bright;
@@ -394,20 +549,27 @@ main {
   padding: 16px;
   border-radius: 7px;
   display: inline-block;
-}
+}*/
 
 footer {
   background-color: $color-green-dark;
   color: $color-white;
   display: flex;
+  justify-content: space-around;
   padding: 2rem;
-  min-width: 100vw;
-  ul {
-    list-style-type: none;
-  }
-  .link-container {
+  width: 100vw;
+  .footer-link-container {
+    max-width: 130px;
+    ul {
+      list-style-type: none;
+      max-width: 120px;
+      li {
+        width: fit-content;
+        padding: 5px 5px;
+      }
+    }
     width: 100%;
-    .link-list {
+    .footer-link-list {
       width: 100%;
     }
   }
@@ -415,8 +577,16 @@ footer {
     text-decoration: none;
     color: $color-white;
   }
+  a:hover {
+    color: $color-green-bright;
+  }
   p {
     text-align: end;
+  }
+  .footer-icon {
+    color: $color-white;
+    width: 24px;
+    height: 24px;
   }
 }
 
