@@ -26,6 +26,9 @@ $vars: (
   clr-black: #000000,
   clr-grey: #4f4f4f,
   clr-white: #ffffff,
+  clr-valid: #00ff00,
+  clr-invalid: #970000,
+  clr-warning: #ffd000,
 
   ff-primary: 'Mohave',
   ff-secondary: 'Quicksand',
@@ -210,13 +213,14 @@ header {
 
 @media screen and (min-width: 600px) {
   header {
-    //max-width: 1080px;
+    max-width: 1920px;
     a {
       float: left;
       text-align: center;
     }
     .navbar-links {
-      min-width: 80vw;
+      //min-width: 80vw;
+      max-width: 1000px;
       align-self: flex-end;
       display: flex;
       justify-content: flex-end;
@@ -679,6 +683,23 @@ main {
   }
 }
 
+@media only screen and (min-width: 1000px) {
+  main {
+    width: 100vw;
+  }
+  .contact-header-container {
+    margin: auto;
+    text-align: center;
+    max-width: 60vw;
+    padding-bottom: 50px;
+  }
+  .contact-form-container{
+    margin: auto;
+    max-width: 60vw;
+  }
+}
+
+
 form {
   @include var(border, bdr-green);
   @include var(background-color, clr-white);
@@ -690,10 +711,10 @@ form {
     font: inherit;
   }
   label {
-    @include var(font-size, fs-2);
+    @include var(font-size, fs-s);
   }
-  input {
-    @include var(border, bdr-green);
+  input, textarea {
+    @include var(border, bdr-brown);
     @include var(background-color, clr-white);
     @include var(border-radius, bdr-rad-m);
     @include var(padding, pad-s);
@@ -703,22 +724,68 @@ form {
   input:not([type="checkbox"], [type="radio"]) {
     width: 100%;
   }
+  input:not(:placeholder-shown):valid {
+    @include var(outline-color, clr-valid);
+    // outline-color: var(--clr-valid);
+  }
+  input:not(:placeholder-shown):invalid {
+    // outline-color: var(--clr-invalid);
+    @include var(outline-color, clr-invalid);
+  }
+  input:focus:invalid {
+    // outline-color: var(--clr-warning);
+    @include var(outline-color, clr-warning);
+  }
   .form-group {
     @include var(padding, pad-s);
     display: grid;
     gap: 0.25em;
+    .message {
+      height: 150px;
+      resize: none;
+    }
+  }
+  .form-group-full-width{
+    grid-column: 1 / -1;
+    textarea {
+      resize: none;
+    }
   }
   .form-group:has(.fine-print) {
-      grid-column: 1 / -1;
-
-      display: flex;
-      gap: 1ch;
-    }
-
+    display: flex;
+    gap: 1ch;
+  }
   button {
     grid-column: 1 / -1;
     justify-self: end;
   }
+  .form-submit-button {
+    @include var(font-size, fs-m);
+    @include var(background-color, clr-brown-bright);
+    @include var(color, clr-white);
+    @include var(padding, pad-m);
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    padding-top: 10px;
+    border-style: none;
+    border-radius: 7px;
+    box-shadow: $color-white 0px 0px 0px 0px, $color-brown-light -10px 10px;
+    display: inline-block;
+  }
+  .form-submit-button:hover {
+      @include var(color, clr-brown-bright);
+      @include var(background-color, clr-brown-light);
+      box-shadow: $color-brown-light 0px 0px 0px 0px, $color-brown 10px 10px;
+      transition-timing-function: ease-in;
+      scale: 1.1;
+      transition: all 350ms;
+    }
+    .form-submit-button:not(:hover) {
+      scale: 1;
+      transition: all 350ms;
+    }
   @media (width > 720px) {
     grid-template-columns: 1fr 1fr;
   }

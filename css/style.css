@@ -25,6 +25,9 @@
   --clr-black: #000000;
   --clr-grey: #4f4f4f;
   --clr-white: #ffffff;
+  --clr-valid: #00ff00;
+  --clr-invalid: #970000;
+  --clr-warning: #ffd000;
   --ff-primary: Mohave;
   --ff-secondary: Quicksand;
   --ff-tertiary: Courier New;
@@ -189,12 +192,15 @@ header .navbar-expand-button-container .navbar-expand-icon i {
 }
 
 @media screen and (min-width: 600px) {
+  header {
+    max-width: 1920px;
+  }
   header a {
     float: left;
     text-align: center;
   }
   header .navbar-links {
-    min-width: 80vw;
+    max-width: 1000px;
     align-self: flex-end;
     display: flex;
     justify-content: flex-end;
@@ -595,6 +601,21 @@ main .background-text-block {
     max-width: 400px;
   }
 }
+@media only screen and (min-width: 1000px) {
+  main {
+    width: 100vw;
+  }
+  .contact-header-container {
+    margin: auto;
+    text-align: center;
+    max-width: 60vw;
+    padding-bottom: 50px;
+  }
+  .contact-form-container {
+    margin: auto;
+    max-width: 60vw;
+  }
+}
 form {
   border: 2px solid #7DA626;
   border: var(--bdr-green);
@@ -612,11 +633,12 @@ form input, form button, form select, form textarea {
   font: inherit;
 }
 form label {
-  font-size: var(--fs-2);
+  font-size: 1rem;
+  font-size: var(--fs-s);
 }
-form input {
-  border: 2px solid #7DA626;
-  border: var(--bdr-green);
+form input, form textarea {
+  border: 2px solid #50260f;
+  border: var(--bdr-brown);
   background-color: #ffffff;
   background-color: var(--clr-white);
   border-radius: 10px;
@@ -631,20 +653,82 @@ form input {
 form input:not([type=checkbox], [type=radio]) {
   width: 100%;
 }
+form input:not(:-moz-placeholder-shown):valid {
+  outline-color: #00ff00;
+  outline-color: var(--clr-valid);
+}
+form input:not(:placeholder-shown):valid {
+  outline-color: #00ff00;
+  outline-color: var(--clr-valid);
+}
+form input:not(:-moz-placeholder-shown):invalid {
+  outline-color: #970000;
+  outline-color: var(--clr-invalid);
+}
+form input:not(:placeholder-shown):invalid {
+  outline-color: #970000;
+  outline-color: var(--clr-invalid);
+}
+form input:focus:invalid {
+  outline-color: #ffd000;
+  outline-color: var(--clr-warning);
+}
 form .form-group {
   padding: 10px;
   padding: var(--pad-s);
   display: grid;
   gap: 0.25em;
 }
-form .form-group:has(.fine-print) {
+form .form-group .message {
+  height: 150px;
+  resize: none;
+}
+form .form-group-full-width {
   grid-column: 1/-1;
+}
+form .form-group-full-width textarea {
+  resize: none;
+}
+form .form-group:has(.fine-print) {
   display: flex;
   gap: 1ch;
 }
 form button {
   grid-column: 1/-1;
   justify-self: end;
+}
+form .form-submit-button {
+  font-size: 1.25rem;
+  font-size: var(--fs-m);
+  background-color: #50260f;
+  background-color: var(--clr-brown-bright);
+  color: #ffffff;
+  color: var(--clr-white);
+  padding: 16px;
+  padding: var(--pad-m);
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px;
+  padding-top: 10px;
+  border-style: none;
+  border-radius: 7px;
+  box-shadow: #ffffff 0px 0px 0px 0px, #C4A484 -10px 10px;
+  display: inline-block;
+}
+form .form-submit-button:hover {
+  color: #50260f;
+  color: var(--clr-brown-bright);
+  background-color: #C4A484;
+  background-color: var(--clr-brown-light);
+  box-shadow: #C4A484 0px 0px 0px 0px, #50260f 10px 10px;
+  transition-timing-function: ease-in;
+  scale: 1.1;
+  transition: all 350ms;
+}
+form .form-submit-button:not(:hover) {
+  scale: 1;
+  transition: all 350ms;
 }
 @media (width > 720px) {
   form {
