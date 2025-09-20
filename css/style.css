@@ -614,6 +614,7 @@ main .background-text-block {
   .contact-form-container {
     margin: auto;
     max-width: 60vw;
+    padding-bottom: 50px;
   }
 }
 form {
@@ -653,7 +654,7 @@ form input, form textarea {
 form input:not([type=checkbox], [type=radio]) {
   width: 100%;
 }
-form input:not(:-moz-placeholder-shown):valid {
+form input:not(:-moz-placeholder):valid {
   outline-color: #00ff00;
   outline-color: var(--clr-valid);
 }
@@ -661,7 +662,7 @@ form input:not(:placeholder-shown):valid {
   outline-color: #00ff00;
   outline-color: var(--clr-valid);
 }
-form input:not(:-moz-placeholder-shown):invalid {
+form input:not(:-moz-placeholder):invalid {
   outline-color: #970000;
   outline-color: var(--clr-invalid);
 }

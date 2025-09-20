@@ -7,16 +7,42 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+  <header>
+    <div class="navbar-logo-container">
+      <a href="/index.html">
+        <img src="/img/williampearcedev-logo.png" alt="WilliamPearceDev Logo" class="logo-img" height="74px">
+      </a>
+    </div>
+    <div class="navbar-links">
+      
+      <div id="navbarList">
+        <a href="/index.html">Home</a>
+        <!-- <a href="#services">Services</a> -->
+        <!-- <a href="#projects">Projects</a> -->
+        <a href="/pages/contact.html" class="active">Contact</a>
+      </div>
+    </div>
+    <div class="navbar-expand-button-container">
+      <a href="javascript:void(0);" class="navbar-expand-icon" onclick="toggleNavbar()">
+      <i class="fa fa-bars"></i>
+      </a>
+    </div>
+  </header>
+
   <main>
-    <section class="contact-header-container">
-      <h1>Contact me</h1>
-      <p>
-        Have any questions or comments? Want to work with me to make your 
-        website get the results you want? Whether you have an existing website 
-        or not, or want to discuss something else, feel free to reach out to 
-        me below, I would love to get in touch!
-      </p>
+    <section class="cta contact-header-container">
+      <section class="cta-text cta-text-bordered">
+        <h1>Contact me</h1>
+        <p>
+          Have any questions or comments? Want to work with me to make your 
+          website get the results you want? Whether you have an existing website 
+          or not, or want to discuss something else, feel free to reach out to 
+          me below, I would love to get in touch!
+        </p>
+      </section>
     </section>
+    
     <section class="contact-form-container">
       <form action="" method="POST" action="https://formsubmit.co/williampearcedev@gmail.com">
         <div class="form-group">
@@ -49,5 +75,79 @@
       </form>
     </section>
   </main>
+
+  <footer>
+    <div class="footer-link-container">
+      <h2>
+        SOCIALS
+      </h2>
+      <ul class="footer-link-list">
+        <li>
+          <a href="mailto:williampearcedev@gmail.com">
+            <span style="font-size: 1em; color: white; width: 20px;">
+              <i class="fa fa-envelope footer-icon"></i>
+            </span>
+            Email
+          </a>
+        </li>
+        <!-- <li>
+          <a href="#">
+            <span style="font-size: 1em; color: white; width: 20px;">
+              <i class="fa fa-facebook footer-icon"></i>
+            </span>
+            Facebook
+          </a>
+        </li> -->
+        <li>
+          <a href="https://www.instagram.com/williampearcedev/">
+            <span style="font-size: 1em; color: white; width: 20px;">
+              <i class="fa fa-instagram footer-icon"></i>
+            </span>
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/williampearcedev/">
+            <span style="font-size: 1em; color: white; width: 20px;">
+              <i class="fa fa-linkedin footer-icon"></i>
+            </span>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/williampearcedev">
+            <span style="font-size: 1em; color: white; width: 20px;">
+              <i class="fa fa-github footer-icon"></i>
+            </span>
+            Github
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="footer-link-container">
+      <h2>
+        LINKS
+      </h2>
+      <ul class="footer-link-list" style="width: 80px;">
+        <li><a href="index.html">Home</a></li>
+        <!-- <li><a href="/pages/services.html">Services</a></li> -->
+        <!-- <li><a href="/pages/projects.html">Projects</a></li> -->
+        <li><a href="/pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <!--
+    <div class="footer-link-container">
+      <a href="mailto:williampearcebusiness@gmail.com">
+        <span style="font-size: 1em; color: white; width: 20px;">
+          <i class="fa fa-envelope footer-icon"></i>
+        </span>
+        Email me
+      </a>
+    </div>
+    -->
+  </footer>
+
+  <script src="script.js"></script>
+
 </body>
 </html>
