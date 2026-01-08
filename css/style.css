@@ -737,6 +737,24 @@ form .form-submit-button:not(:hover) {
   }
 }
 
+.privacy-policy {
+  text-align: left;
+}
+.privacy-policy h1, .privacy-policy h2, .privacy-policy h3, .privacy-policy h4, .privacy-policy p, .privacy-policy ul, .privacy-policy li {
+  text-align: left;
+}
+.privacy-policy h3, .privacy-policy h4 {
+  font-size: 1.25rem;
+  font-size: var(--fs-m);
+}
+.privacy-policy p, .privacy-policy ul, .privacy-policy li {
+  font-size: 1.25rem;
+  font-size: var(--fs-m);
+}
+.privacy-policy ul li {
+  list-style-type: none;
+}
+
 footer {
   background-color: #102601;
   background-color: var(--clr-green-dark);

@@ -792,6 +792,25 @@ form {
   }
 }
 
+.privacy-policy {
+  text-align: left;
+  h1, h2, h3, h4, p, ul, li {
+    text-align: left;
+  }
+  h3, h4 {
+    @include var(font-size, fs-m);
+  }
+  p, ul, li {
+    @include var(font-size, fs-m);
+    
+  }
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
+
 footer {
   //background-color: $color-green-dark;
   @include var(background-color, clr-green-dark);
