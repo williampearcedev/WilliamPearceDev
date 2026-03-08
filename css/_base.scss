@@ -83,6 +83,7 @@ $vars: (
 body, html {
   display: grid;
   place-items: center;
+  overflow-x: hidden;
 }
 
 body {
@@ -92,7 +93,6 @@ body {
   height: 100vh;
   @include var(color, clr-black);
   @include var(background-color, clr-white);
-  overflow-x: hidden;
 
   p {
     @include var(font-size, fs-m);
@@ -361,6 +361,7 @@ main {
       display: block;
       margin-left: auto;
       margin-right: auto;
+      
     }
   }
   .cta-text-bordered-spacer {
@@ -369,6 +370,7 @@ main {
     visibility: hidden;
   }
 }
+
 
 @media only screen and (min-width: 400px) {
   .cta-image-container {
@@ -421,16 +423,64 @@ main {
   }
 }
 
-@keyframes moving-shadow {
-  0% {
-    box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+@media (prefers-reduced-motion: no-preference) {
+  .center-item {
+    scale: .8; opacity: 0;
+    animation: fade-in-center linear forwards;
+    animation-timeline: view();
+    animation-range: 0px 200px;
   }
-  50% {
-    box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium 10px 10px, $color-green-dark 20px 20px;
+
+  @keyframes fade-in-center {
+    to {
+      scale: 1;
+      opacity: 1;}
   }
-  100% {
-    box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+
+  @keyframes moving-shadow {
+    0% {
+      box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+    }
+    50% {
+      box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium 10px 10px, $color-green-dark 20px 20px;
+    }
+    100% {
+      box-shadow: $color-green-bright 0px 0px 0px 2px, $color-green-medium -10px 10px, $color-green-dark -20px 20px;
+    }
   }
+}
+
+@media only screen and (min-width: 600px) and (prefers-reduced-motion: no-preference) {
+  .left-side-item {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: fade-in-left linear forwards;
+    animation-timeline: view();
+    animation-range: 0px 200px;
+  }
+
+  .right-side-item {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: fade-in-right linear forwards;
+    animation-timeline: view();
+    animation-range: 0px 200px;
+  }
+
+  @keyframes fade-in-left {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-right {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+
 }
 
 @media only screen and (min-width: 600px) {

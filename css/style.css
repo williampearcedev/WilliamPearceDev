@@ -60,6 +60,7 @@
 body, html {
   display: grid;
   place-items: center;
+  overflow-x: hidden;
 }
 
 body {
@@ -73,7 +74,6 @@ body {
   color: var(--clr-black);
   background-color: #ffffff;
   background-color: var(--clr-white);
-  overflow-x: hidden;
 }
 body p {
   font-size: 1.25rem;
@@ -260,10 +260,6 @@ main .background-text-block {
   background-color: var(--clr-white);
   padding: 10px;
   padding: var(--pad-s);
-  /*
-  a:visited {
-    color: $color-white;
-  }*/
 }
 .cta .cta-text h1 {
   font-size: 3rem;
@@ -308,6 +304,12 @@ main .background-text-block {
 .cta .cta-text .cta-button:not(:hover) {
   scale: 1;
   transition: all 350ms;
+}
+.cta .cta-text {
+  /*
+  a:visited {
+    color: $color-white;
+  }*/
 }
 .cta .cta-text-bordered {
   border-top: 2px solid #7DA626;
@@ -378,15 +380,58 @@ main .background-text-block {
     animation: moving-shadow 10s infinite;
   }
 }
-@keyframes moving-shadow {
-  0% {
-    box-shadow: #7DA626 0px 0px 0px 2px, #365902 -10px 10px, #102601 -20px 20px;
+@media (prefers-reduced-motion: no-preference) {
+  .center-item {
+    scale: 0.8;
+    opacity: 0;
+    animation: fade-in-center linear forwards;
+    animation-timeline: view();
+    animation-range: 0px 200px;
   }
-  50% {
-    box-shadow: #7DA626 0px 0px 0px 2px, #365902 10px 10px, #102601 20px 20px;
+  @keyframes fade-in-center {
+    to {
+      scale: 1;
+      opacity: 1;
+    }
   }
-  100% {
-    box-shadow: #7DA626 0px 0px 0px 2px, #365902 -10px 10px, #102601 -20px 20px;
+  @keyframes moving-shadow {
+    0% {
+      box-shadow: #7DA626 0px 0px 0px 2px, #365902 -10px 10px, #102601 -20px 20px;
+    }
+    50% {
+      box-shadow: #7DA626 0px 0px 0px 2px, #365902 10px 10px, #102601 20px 20px;
+    }
+    100% {
+      box-shadow: #7DA626 0px 0px 0px 2px, #365902 -10px 10px, #102601 -20px 20px;
+    }
+  }
+}
+@media only screen and (min-width: 600px) and (prefers-reduced-motion: no-preference) {
+  .left-side-item {
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: fade-in-left linear forwards;
+    animation-timeline: view();
+    animation-range: 0px 200px;
+  }
+  .right-side-item {
+    transform: translateX(100%);
+    opacity: 0;
+    animation: fade-in-right linear forwards;
+    animation-timeline: view();
+    animation-range: 0px 200px;
+  }
+  @keyframes fade-in-left {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in-right {
+    to {
+      transform: translateX(0%);
+      opacity: 1;
+    }
   }
 }
 @media only screen and (min-width: 600px) {
@@ -767,7 +812,6 @@ footer {
 }
 footer .footer-link-container {
   max-width: 130px;
-  width: 100%;
 }
 footer .footer-link-container ul {
   list-style-type: none;
@@ -777,6 +821,9 @@ footer .footer-link-container ul li {
   width: -moz-fit-content;
   width: fit-content;
   padding: 5px 0;
+}
+footer .footer-link-container {
+  width: 100%;
 }
 footer .footer-link-container .footer-link-list {
   width: 100%;
