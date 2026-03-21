@@ -1,0 +1,18 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/willia14/public_html/css
+    - /bin/cp css/style.css $DEPLOYPATH
+    - export DEPLOYPATH=/home/willia14/public_html/img
+    - /bin/cp img/william-headshot.jpg $DEPLOYPATH
+    - /bin/cp img/william-photo.jpg $DEPLOYPATH
+    - /bin/cp img/williampearcedev-logo-2000x2000.png $DEPLOYPATH
+    - /bin/cp img/williampearcedev-logo-400x400.png $DEPLOYPATH
+    - export DEPLOYPATH=/home/willia14/public_html
+    - /bin/cp .htaccess $DEPLOYPATH
+    - /bin/cp contact.html $DEPLOYPATH
+    - /bin/cp favicon.ico $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp privacypolicy.html $DEPLOYPATH
+    - /bin/cp script.js $DEPLOYPATH
+    - /bin/cp thanks.html $DEPLOYPATH
